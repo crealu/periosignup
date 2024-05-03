@@ -32,8 +32,8 @@ app.post('/new-member', (req, res) => {
 	let transporter = nodemailer.createTransport(smtpConfig);
 
 	let mailOptions = {
-		from: 'Email <email@site.com>',
-		to: 'email@gmail.com',
+    from: 'Niheigo Support <niheigodev@site.com>',
+    to: 'niheigodev@gmail.com',
 		subject: 'Membership Request',
 		text: 'text',
 		html: output
