@@ -1,6 +1,6 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-require('dotenv').config({ path: '.env' });
+// require('dotenv').config({ path: '.env' });
 
 const app = express();
 const port = process.env.PORT;
