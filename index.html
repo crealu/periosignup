@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<title>Elemental Perios</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="join-title">JOIN THE<br/>COMMUNITY</h1>
+        <p class="fulfill-text">Fulfill your role as expert Elemental Explorer.</p>
+        <input class="email-input" id="join-input" placeholder="email" /><br/>
+        <button class="btn-1" id="join-btn">JOIN</button>
+      </div>
+      <div class="col">
+        <div class="home-media-wrapper">
+          <img id="logo" src="http://www.periosworld.com/img/logo300151.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="about-text">Elemental Perios is an educational video game coming soon to a wide host of gaming platforms. It features multiplayer gaming, crafting, learning, and the immersive application of chemistry knowledge.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container features">
+    <div class="row">
+      <div class="col">
+        <ul class="list-group feature-list">
+          <li class="list-group-item">Perios</li>
+          <li class="list-group-item">Perios Powers</li>
+          <li class="list-group-item">The Perios World</li>
+          <li class="list-group-item">The Elemental Quest</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="feature-display">
+          <p class="feature-text">Perios are the most unique creatures in the universe. They form the building blocks of PeriosWorld, the Earth, and universe as we know it.</p>
+          <div class="feature-img-wrapper">
+            <img class="feature-img" src="http://www.periosworld.com/img/perios/helen-cropped.png"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container island-section">
+    <div class="row">
+      <div class="col">
+        <h3 class="enter-title">ENTER THE ISLAND</h3>
+        <div class="underglow"></div>
+        <p class="enter-text">Get the Fornite Island Code</p>
+        <input class="email-input" id="enter-input" placeholder="email" /><br/>
+        <button class="btn-1" id="enter-btn">ENTER</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="conatiner">
+    <div class="row">
+      <div class="col">
+        <div class="video-wrapper">
+          <p class="enter-text">Video</p>
+        </div>
+      </div>  
+    </div>  
+  </div>  
+
+  <footer>.</footer>
+
+  <script>
+    const joinBtn = document.getElementById('join-btn');
+    const enterBtn = document.getElementById('enter-btn');
+    const items = document.getElementsByTagName('li');
+    const featureImg = document.getElementsByClassName('feature-img')[0];
+    const featureText = document.getElementsByClassName('feature-text')[0];
+
+    async function sendEmail(theEmail) {
+      if (!theEmail.includes('@')) {
+        return false;
+      }
+
+      let obj = {email: theEmail};
+
+      await fetch('/new-member', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(obj),
+      })
+      .then(res => res.json())
+      .then(data => { console.log(data) })
+      .catch(err => { console.log(err) })
+
+      return true;
+    }
+
+    function handleSubmit(event) {
+      const input = event.target.textContent.toLowerCase() + '-input';
+      const email = document.getElementById(input).value;
+      let isValid = sendEmail(email);
+      let message = '';
+
+      if (isValid) {
+        message = 'Thank you for joining!';
+      } else {
+        message = 'Please enter a valid email'
+      }
+
+      console.log(message);
+    }
+
+    joinBtn.addEventListener('click', handleSubmit);    
+    enterBtn.addEventListener('click', handleSubmit);
+
+    const features = [
+      {
+        image: 'http://www.periosworld.com/img/perios/helen-cropped.png',
+        text: 'Perios are the most unique creatures in the universe. They form the building blocks of PeriosWorld, the Earth, and universe as we know it.'
+      },  
+      {
+        image: 'http://www.periosworld.com/img/perios/powers.png',
+        text: 'All Elemental Perios have incredible energy powers that help explorers solve problems, defend themselves, and change matter.'
+      },  
+      {
+        image: 'http://www.periosworld.com/img/regionsmap.png',
+        text: 'Like Earth, Periosworld has unique geographic areas where the Perio clans live.'
+      },  
+      {
+        image: 'http://www.periosworld.com/img/screenshot_1.png',
+        text: 'Capture Perios and harness their power to overcome challenges in the quest to repair your galactic navigator and escape Periosworld.'
+      }
+    ];
+
+    function restyleItems() {
+      for (let i = 0; i < items.length; i++) {
+        items[i].style.boxShadow = '0px 0px 0px 0px white inset';
+      }
+    }
+
+    for (let i = 0; i < items.length; i++) {
+      items[i].addEventListener('click', (event) => { 
+        restyleItems();
+        event.target.style.boxShadow = '0px 0px 10px 0px white inset';
+        featureImg.src = features[i].image;
+        featureText.textContent = features[i].text;
+       });
+    }
+  </script>
+</body>
+</html>
