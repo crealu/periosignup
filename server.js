@@ -1,15 +1,17 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
+const cors = require('cors');
 // require('dotenv').config({ path: '.env' });
 
 const app = express();
 const port = process.env.PORT;
 
 app.use(express.urlencoded({extended: true}));
-app.use(express.static('public'));
+app.use(express.static(__dirname));
+app.use(cors());
 
 app.get('/', (req, res) => {
-	res.send('');
+	res.send('Empty');
 });
 
 app.post('/new-member', (req, res) => {
