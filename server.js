@@ -74,10 +74,10 @@ app.post('/new-member', async (req, res) => {
 			if (err) { return console.log(err) }
 			console.log(info);
 		});
-    res.status(200).send({msg: 'Data submitted successfully'});
+    res.status(200).send({msg: 'Your submission was successful. Thank you!'});
 	} catch (err) {
 		console.error(err);
-		res.status(200).send({msg: 'Data submitted successfully'});
+		res.status(200).send({msg: "We apologize. Your request could not be processed"});
 	}
 });
 

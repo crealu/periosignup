@@ -1,0 +1,143 @@
+/*
+Theme Name:   Aerogen
+Author:       Cameron Miller
+Description:  Basic Theme for Elemental Perios
+Version:      1.0
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  --orange_1: #F58220;
+}
+
+body {
+  background: black;
+  color: white;
+  font-family: 'Kufam', sans-serif;
+}
+
+.container:nth-child(1) {
+  margin-top: 200px;
+}
+
+.container {
+  margin-bottom: 150px;
+  padding: 0px 30px;
+}
+
+.join-title {
+  font-size: 50px;
+  margin-bottom: 0px;
+}
+
+.fulfill-text {
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.email-input {
+  width: 100%;
+  border-radius: 6px;
+  padding: 4px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.btn-1 {
+  color: white;
+  background: var(--orange_1);
+  box-shadow: 0px 0px 10px 0px var(--orange_1);
+  border: none;
+  border-radius: 8px;
+  width: 150px;
+  letter-spacing: 3px;
+  font-size: 20px;
+  padding: 8px 20px;
+  opacity: 0.9;
+  transition: 0.3s ease;
+}
+
+#btn-1:hover {
+  opacity: 1.0;
+}
+
+#logo {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.about-text {
+  font-size: 20px;
+}
+
+.features {
+  height: 400px;
+}
+
+.feature-text {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.feature-img-wrapper {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  overflow-x: hidden;
+  margin-bottom: 20px;
+}
+
+.feature-img {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.feature-list li {
+  background: black;
+  color: white;
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.island-section {
+  text-align: center;
+}
+
+.underglow {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  height: 3px;
+  width: 50%;
+  background: var(--orange_1);
+  box-shadow: 0px 0px 5px 0px var(--orange_1);
+  margin-bottom: 20px;
+}
+
+#enter-input {
+  width: 300px;
+}
+
+.video-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 1px solid white;
+  text-align: center;
+  width: 600px;
+  height: 400px;
+}
+
+footer {
+  color: black;
+  height: 200px;
+}
